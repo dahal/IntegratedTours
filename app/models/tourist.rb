@@ -1,0 +1,2 @@
+class Tourist < User
+end
