@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
-      u.permit([:type, :name, :address])
+      u.permit(
+        %i(type email password password_confirmation name address)
+      )
     end
   end
 end
