@@ -29,6 +29,7 @@ gem 'bourbon'
 gem 'refills'
 gem 'bitters'
 gem 'neat'
+gem 'faker', require: false
 
 group :development do
   gem 'spring'
