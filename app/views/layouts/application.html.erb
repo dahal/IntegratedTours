@@ -8,7 +8,12 @@
   </head>
 
   <body>
-    <%= render "partials/navigation" %>
+    <% unless controller_name == 'dashboard' %>
+      <header>
+        <%= render "partials/navigation" %>
+      </header>
+    <% end %>
+
     <%= render "layouts/flash_messages" %>
 
     <%= yield %>
