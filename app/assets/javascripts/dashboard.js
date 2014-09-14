@@ -1,22 +1,12 @@
 $(function() {
   "user strict";
 
-  var map = null;
+  var searchUrl = $('.search-form').attr('action');
 
-  App.Components.CurrentLocation.getLocation(function(position) {
-    var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-    console.log(coords)
-    map = new App.Components.SearchResultMap($('.search-map')[0], { center: coords });
-    map.init();
-  });
-
-  $('.search-form').on('submit', function(e) {
-    e.preventDefault();
-
+  var performSearch = function(query) {
     $.ajax({
-      url: $(this).attr('action'),
-      data: $(this).serialize(),
+      url: searchUrl,
+      data: { location: query },
       dataType: 'json',
       success: function(results) {
         var html = [];
@@ -33,10 +23,25 @@ $(function() {
           html = "No matches found."
         }
 
-        map.drawPins(results);
+        map.setMarkers(results);
 
         $('.search-results').html(html);
       }
     });
+  }
+
+  var map = new App.Components.SearchResultMap($('.search-map')[0]);
+
+  App.Components.CurrentLocation.getLocation(function(position) {
+    map.render();
+
+    performSearch([position.coords.latitude, position.coords.longitude])
   });
+
+  $('.search-form').on('submit', function(e) {
+    e.preventDefault();
+
+    performSearch($(this).find('[name=location]').val());
+  });
+
 });
