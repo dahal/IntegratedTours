@@ -1,5 +1,5 @@
 class Guide < User
   include Gravtastic
 
-  gravtastic
+  gravtastic d: 'identicon'
 end

@@ -1,5 +1,13 @@
-<div class="avatar">
-    <img src="<%=model.gravatar_url %>"></img>
+<div class="clearfix">
+  <div class="avatar">
+    <img src="<%= model.gravatar_url %>"></img>
+  </div>
+
+  <div class="details">
+    <div class="name"><%= model.name %></div>
+    <div class="address"><%= model.address %></div>
+    <div class="contact">
+      <a href="mailto:<%= model.email %>">Contact</a>
+    </div>
+  </div>
 </div>
-<div class="name"><%= model.name %></div>
-<div class="address"><%= model.address %></div>
