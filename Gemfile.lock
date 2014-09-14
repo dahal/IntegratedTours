@@ -151,8 +151,6 @@ GEM
       hashie
       httparty
       multi_json
-    sabre_dev_studio-flight (1.0.2)
-      sabre_dev_studio
     sass (3.4.4)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
@@ -207,7 +205,7 @@ DEPENDENCIES
   pry
   rails (= 4.1.5)
   refills
-  sabre_dev_studio-flight
+  sabre_dev_studio
   sass-rails (~> 5.0.0.beta1)!
   sdoc (~> 0.4.0)
   simple_form

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   root to: 'dashboard#show'
   get 'flights/destination'
+  get 'flights/random_destination'
 end

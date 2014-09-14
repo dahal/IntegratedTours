@@ -13,7 +13,7 @@ console.log('loads last')
 Traitify.setPublicKey("8kvtmdpdp6b2n2nep5a60oc1f9");
   Traitify.setHost("https://api-sandbox.traitify.com");
   Traitify.setVersion("v1");
-  var assessmentId = '4094248c-7eca-404a-886d-23e9ad8aa030';
+  var assessmentId = '403fae30-bf23-4393-b187-bd0ef8751585';
   Traitify.ui.slideDeck(assessmentId, ".assessment", function(data) {
     Traitify.ui.resultsProp(assessmentId, ".assessment", {showTraits: true});
   });

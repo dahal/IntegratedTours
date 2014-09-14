@@ -6,25 +6,33 @@ class FlightsController < ApplicationController
     #   :departuredate => params[:departure_date],
     #   :returndate    => params[:return_date]
     # }
-    options = {
+    options = {:query=>{
       :origin        => 'JFK',
       :destination   => 'LAX',
       :departuredate => '2014-10-01',
-      :returndate    => '2014-11-05'
+      :returndate    => '2014-10-15'
+      } 
     }
-    @flights = SabreDevStudio::Flight::Api.low_fare_forecast(options)
-    require "pry"; binding.pry
+    @flights = SabreDevStudio::Base.get('/v1/shop/flights', options)
     render json: @flights.to_json
   end
 
-  def rantom_ass_destination
-    options = {
-      :origin        => params[:origin],
-      :departuredate => params[:departure_date],
-      :returndate    => params[:return_date],
-      :theme         => params[:theme]
+  def random_destination
+    # options = {
+    #   :origin        => params[:origin],
+    #   :departuredate => params[:departure_date],
+    #   :returndate    => params[:return_date],
+    #   :theme         => params[:theme]
+    # }
+
+    options = {:query=>{
+      :origin        => 'JFK',
+      :departuredate => '2014-10-01',
+      :returndate    => '2014-10-15',
+      :theme         => 'BEACH'
+      } 
     }
-    @flights = SabreDevStudio::Flight::Api.destination_air_shop(options)
+    @flights = SabreDevStudio::Base.get('/v1/shop/flights/fares',options)
     render json: @flights.to_json
   end
 end

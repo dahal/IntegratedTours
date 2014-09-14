@@ -41,7 +41,7 @@ gem 'traitify'
 
 # Hiding of API keys
 gem 'dotenv-rails'
-gem 'sabre_dev_studio-flight'
+gem 'sabre_dev_studio'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

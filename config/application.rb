@@ -39,6 +39,5 @@ module IntegratedTours
       c.client_secret = '1GM2eMjb'
       c.uri           = 'https://api.test.sabre.com'
     end
-
   end
 end
