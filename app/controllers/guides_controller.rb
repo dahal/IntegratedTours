@@ -1,9 +1,7 @@
 class GuidesController < ApplicationController
-  respond_to :json
-
   def index
     guides = Guide.near(params[:location])
 
-    respond_with guides
+    render json: guides.to_json(methods: [:gravatar_url])
   end
 end

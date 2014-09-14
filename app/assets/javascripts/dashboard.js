@@ -14,6 +14,9 @@ $(function() {
         if (results.length > 0) {
           $.each(results, function(i, item) {
             html += '<div class="tour-guide">' +
+                      '<div class="avatar">' +
+                        '<img src="' + item.gravatar_url + '</img>' +
+                      '</div>' +
                       '<div class="name">' + item.name + '</div>' +
                       '<div class="address">' + item.address + '</div>' +
                     '</div>';

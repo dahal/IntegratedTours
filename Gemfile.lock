@@ -52,13 +52,6 @@ GEM
       jquery-rails
       railties
     bcrypt (3.1.7)
-    bitters (0.10.0)
-      bourbon (>= 3.2)
-      sass (>= 3.2)
-      thor
-    bourbon (4.0.2)
-      sass (~> 3.3)
-      thor
     builder (3.2.2)
     coderay (1.1.0)
     coffee-script (2.3.0)
@@ -93,6 +86,7 @@ GEM
     font-awesome-sass (4.1.0)
       sass (~> 3.2)
     geocoder (1.2.5)
+    gravtastic (3.2.6)
     hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.11)
@@ -111,9 +105,6 @@ GEM
     minitest (5.4.1)
     multi_json (1.10.1)
     multipart-post (1.2.0)
-    neat (1.6.0)
-      bourbon (>= 3.1)
-      sass (>= 3.3)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.5)
@@ -144,7 +135,6 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
-    refills (0.0.2)
     sass (3.4.4)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
@@ -186,20 +176,17 @@ PLATFORMS
 
 DEPENDENCIES
   backbone-on-rails
-  bitters
-  bourbon
   devise
   dotenv-rails
   faker
   font-awesome-sass
   geocoder
+  gravtastic
   jbuilder (~> 2.0)
   jquery-rails
-  neat
   pg
   pry
   rails (= 4.1.5)
-  refills
   sass-rails (~> 5.0.0.beta1)!
   sdoc (~> 0.4.0)
   simple_form
