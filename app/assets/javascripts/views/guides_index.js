@@ -8,7 +8,7 @@ App.Views.GuidesIndex = Backbone.View.extend({
 
     render: function() {
         var that = this;
-
+        that.$el.html("");
         if (this.collection.length > 0) {
             this.collection.each(function(guide) {
                 var guideView = new App.Views.Guide({ model: guide });
