@@ -1,4 +1,4 @@
-window.IntegratedTours = {
+window.App = {
   Models: {},
   Collections: {},
   Views: {},
@@ -7,6 +7,6 @@ window.IntegratedTours = {
 };
 
 $(document).ready(function(){
-  var flightsController = new IntegratedTours.Flights.Controller()
+  var flightsController = new App.Flights.Controller()
   flightsController.init()
 });

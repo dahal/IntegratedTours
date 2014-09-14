@@ -1,4 +1,4 @@
-IntegratedTours.Views.GuidesIndex = Backbone.View.extend({
+App.Views.GuidesIndex = Backbone.View.extend({
 
   template: JST['guides/index']
 
