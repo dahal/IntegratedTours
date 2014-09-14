@@ -8,10 +8,15 @@ App.Views.GuidesIndex = Backbone.View.extend({
 
     render: function() {
         var that = this;
-        this.collection.each(function(guide) {
-            var guideView = new App.Views.Guide({ model: guide });
-            that.$el.append(guideView.render().el);
-        });
+
+        if (this.collection.length > 0) {
+            this.collection.each(function(guide) {
+                var guideView = new App.Views.Guide({ model: guide });
+                that.$el.append(guideView.render().el);
+            });
+        } else {
+            that.$el.html("No matches found.");
+        }
 
         return this;
     }
