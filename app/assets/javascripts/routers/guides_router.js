@@ -1,3 +1,3 @@
-IntegratedTours.Routers.Guides = Backbone.Router.extend({
+App.Routers.Guides = Backbone.Router.extend({
 
 });

@@ -1,6 +1,6 @@
-IntegratedTours.Flights.Controller = function(){}
+App.Flights.Controller = function(){}
 
-IntegratedTours.Flights.Controller.prototype = {
+App.Flights.Controller.prototype = {
   init: function(){
     this.getGeoLocation()
   },

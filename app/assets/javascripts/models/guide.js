@@ -1,3 +1,3 @@
-IntegratedTours.Models.Guide = Backbone.Model.extend({
+App.Models.Guide = Backbone.Model.extend({
 
 });
