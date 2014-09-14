@@ -90,7 +90,8 @@ GEM
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
-    geocoder (1.1.8)
+    font-awesome-sass (4.1.0)
+      sass (~> 3.2)
     geocoder (1.2.5)
     hashie (3.3.1)
     hike (1.2.3)
@@ -190,6 +191,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
+  font-awesome-sass
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
