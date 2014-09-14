@@ -39,6 +39,9 @@ end
 # Traitify for tracking personality
 gem 'traitify'
 
+# Hiding of API keys
+gem 'dotenv-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -71,6 +71,11 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
+    dotenv-rails (0.11.1)
+      dotenv (= 0.11.1)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -87,6 +92,7 @@ GEM
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
+    geocoder (1.1.8)
     hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.11)
@@ -184,6 +190,7 @@ DEPENDENCIES
   bourbon
   devise
   faker
+  dotenv-rails
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
