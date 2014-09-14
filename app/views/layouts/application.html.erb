@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>IntegratedTours</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -23,8 +23,12 @@
     <p class="alert alert-danger"><%= alert %></p>
   <% end %>
 
+  <%= render "refills/navigation" %>
+  <%= render "refills/hero" %>
+
   <%= yield %>
 
+  <%= render "refills/footer" %>
   <%= javascript_include_tag 'application'%>
 </body>
 </html>
