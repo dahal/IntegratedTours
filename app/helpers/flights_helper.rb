@@ -1,0 +1,3 @@
+module FlightsHelper
+
+end

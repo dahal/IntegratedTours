@@ -34,5 +34,11 @@ module IntegratedTours
       config.deck_id = "super-hero"
     end
 
+    SabreDevStudio.configure do |c|
+      c.client_id     = 'V1:5lrd2prpm9fmmsk5:DEVCENTER:EXT'
+      c.client_secret = '1GM2eMjb'
+      c.uri           = 'https://api.test.sabre.com'
+    end
+
   end
 end

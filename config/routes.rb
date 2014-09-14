@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :guides, only: [:index], defaults: { format: 'json' }
 
   root to: 'dashboard#show'
+  get 'flights/destination'
 end
