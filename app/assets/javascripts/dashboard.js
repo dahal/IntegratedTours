@@ -37,6 +37,8 @@ $(function() {
             $('.search-results').html("No matches found. For now...");
         }
     });
+
+    scrollToAnchor('results');
   });
 
 });
