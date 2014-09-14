@@ -3,11 +3,10 @@ window.IntegratedTours = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
-    alert('Hello from Backbone!');
-  }
+  Flights : {}
 };
 
 $(document).ready(function(){
-  IntegratedTours.initialize();
+  var flightsController = new IntegratedTours.Flights.Controller()
+  flightsController.init()
 });

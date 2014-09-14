@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-
 //= require integrated_tours
 //= require_tree ../templates
 //= require_tree ./models
@@ -10,3 +9,4 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require ./dashboard
+//= require_tree .
