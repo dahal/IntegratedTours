@@ -5,6 +5,7 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree ./components
+//= require app_init
 
 window.App = {
   Models      : {},
@@ -12,9 +13,5 @@ window.App = {
   Views       : {},
   Routers     : {},
   Flights     : {},
-  Components  : {}
-};
-
-$(function() {
-  console.log('app loaded');
-});
+  Components  : {},
+}
