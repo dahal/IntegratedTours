@@ -1,2 +1,3 @@
 class Guide < User
+  
 end
