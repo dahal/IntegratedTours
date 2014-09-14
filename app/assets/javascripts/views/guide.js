@@ -1,4 +1,4 @@
-IntegratedTours.Views.Guides = Backbone.View.extend({
+App.Views.Guides = Backbone.View.extend({
     className: 'guide',
     template: JST['guides/show'],
     events: {
