@@ -1,12 +1,34 @@
 $(function() {
   "user strict";
 
-  var searchUrl = $('.search-form').attr('action');
+  var map = null;
 
-  var performSearch = function(query) {
+  App.Components.CurrentLocation.getLocation(function(position) {
+    var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+    console.log(coords)
+    map = new App.Components.SearchResultMap($('.search-map')[0], { center: coords });
+    map.init();
+  });
+
+  $('.search-form').on('submit', function(e) {
+    e.preventDefault();
+    var guides = new App.Collections.Guides({ params: $(this).serialize() });
+    console.log(guides);
+    guides.fetch({
+        success: function() {
+            var guidesView = new App.Views.GuidesIndex({ collection: guides });
+            $('.search-results-again').html(guidesView.render().el);
+        },
+        error: function() {
+            $('.search-results-again').html("No matches found.");
+        }
+    });
+
+    console.log($(this).attr('action'));
     $.ajax({
-      url: searchUrl,
-      data: { location: query },
+      url: $(this).attr('action'),
+      data: $(this).serialize(),
       dataType: 'json',
       success: function(results) {
         var html = [];
@@ -26,25 +48,10 @@ $(function() {
           html = "No matches found."
         }
 
-        map.setMarkers(results);
+        map.drawPins(results);
 
         $('.search-results').html(html);
       }
     });
-  }
-
-  var map = new App.Components.SearchResultMap($('.search-map')[0]);
-
-  App.Components.CurrentLocation.getLocation(function(position) {
-    map.render();
-
-    performSearch([position.coords.latitude, position.coords.longitude])
   });
-
-  $('.search-form').on('submit', function(e) {
-    e.preventDefault();
-
-    performSearch($(this).find('[name=location]').val());
-  });
-
 });

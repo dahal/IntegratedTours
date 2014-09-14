@@ -1,4 +1,4 @@
-App.Views.Guides = Backbone.View.extend({
+App.Views.Guide = Backbone.View.extend({
     className: 'guide',
     template: JST['guides/show'],
     events: {
