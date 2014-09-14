@@ -1,12 +1,20 @@
+//= require_self
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
+//= require_tree ./components
+
 window.App = {
-  Models: {},
-  Collections: {},
-  Views: {},
-  Routers: {},
-  Flights : {}
+  Models      : {},
+  Collections : {},
+  Views       : {},
+  Routers     : {},
+  Flights     : {},
+  Components  : {}
 };
 
-$(document).ready(function(){
-  var flightsController = new App.Flights.Controller()
-  flightsController.init()
+$(function() {
+  console.log('app loaded');
 });
