@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>IntegratedTours</title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css" rel="stylesheet">
-  <%= csrf_meta_tags %>
-</head>
+  <head>
+    <title>IntegratedTours</title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/flatly/bootstrap.min.css" rel="stylesheet">
+    <%= csrf_meta_tags %>
+  </head>
+
   <body>
-
     <%= render "partials/navigation" %>
-
-    <% if notice %>
-      <div class="alert alert-dismissable alert-success">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong><%= notice %>.</strong>
-      </div>
-    <% end %>
-    <% if alert %>
-      <div class="alert alert-dismissable alert-danger">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong><%= alert %></strong>
-      </div>
-    <% end %>
+    <%= render "layouts/flash_messages" %>
 
     <%= yield %>
-    
+
     <%= javascript_include_tag 'application'%>
     <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp' %>
-    
   </body>
 </html>
