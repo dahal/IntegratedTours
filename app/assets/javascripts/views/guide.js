@@ -1,6 +1,6 @@
 IntegratedTours.Views.Guides = Backbone.View.extend({
     className: 'guide',
-    template: JST['guides/show']),
+    template: JST['guides/show'],
     events: {
         'click .contact': 'initiateContact',
         'mousein .avatar': 'getMoreInfo'
