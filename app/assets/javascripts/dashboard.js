@@ -9,26 +9,7 @@ $(function() {
       data: { location: query },
       dataType: 'json',
       success: function(results) {
-        var html = [];
-
-        if (results.length > 0) {
-          $.each(results, function(i, item) {
-            html += '<div class="tour-guide">' +
-                      '<div class="avatar">' +
-                        '<img src="' + item.gravatar_url + '</img>' +
-                      '</div>' +
-                      '<div class="name">' + item.name + '</div>' +
-                      '<div class="address">' + item.address + '</div>' +
-                    '</div>';
-          });
-
-        } else {
-          html = "No matches found."
-        }
-
         map.setMarkers(results);
-
-        $('.search-results').html(html);
       }
     });
   }
@@ -45,6 +26,17 @@ $(function() {
     e.preventDefault();
 
     performSearch($(this).find('[name=location]').val());
+    var guides = new App.Collections.Guides({ params: $(this).serialize() });
+    guides.fetch({
+        success: function(results) {
+            var guidesView = new App.Views.GuidesIndex({ collection: guides });
+            $('.search-results').html(guidesView.render().el);
+            // map.drawPins(results);
+        },
+        error: function() {
+            $('.search-results').html("No matches found. For now...");
+        }
+    });
   });
 
 });

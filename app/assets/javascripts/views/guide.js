@@ -1,5 +1,5 @@
-App.Views.Guides = Backbone.View.extend({
-    className: 'guide',
+App.Views.Guide = Backbone.View.extend({
+    className: 'tour-guide',
     template: JST['guides/show'],
     events: {
         'click .contact': 'initiateContact',

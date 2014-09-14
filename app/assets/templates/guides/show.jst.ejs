@@ -1,9 +1,5 @@
-<div class="left-25">
-    <div class="avatar"></div>
+<div class="avatar">
+    <img src="<%=model.gravatar_url %>"></img>
 </div>
-<div class="right-75">
-    <div class="card">
-        <div class="name"><%= model.name %></div>
-        <div class="address"><%= model.address %></div>
-    </div>
-</div>
+<div class="name"><%= model.name %></div>
+<div class="address"><%= model.address %></div>

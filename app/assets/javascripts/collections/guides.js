@@ -1,6 +1,13 @@
 App.Collections.Guides = Backbone.Collection.extend({
-    url: 'guides',
     model: App.Models.Guide,
+    sortKey: "name",
+    initialize: function (options) {
+        this.sortKey = 'name';
+        this.params = options.params;
+    },
+    url: function () {
+        return '/guides' + '?' + this.params;
+    },
     comparator: function(a, b) {
         a = a.get(this.sort_key);
         b = b.get(this.sort_key);
@@ -11,8 +18,5 @@ App.Collections.Guides = Backbone.Collection.extend({
     changeSort: function (sortProperty) {
         this.sortKey = sortProperty; 
         this.sort();
-    },
-    initialize: function () {
-        this.sortKey = 'name'; 
     }
 });
