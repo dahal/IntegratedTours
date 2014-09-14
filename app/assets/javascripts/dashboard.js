@@ -16,8 +16,9 @@ $(function() {
     var guides = new App.Collections.Guides({ params: 'location='+query  });
     guides.fetch({
         success: function(results) {
-            var guidesView = new App.Views.GuidesIndex({ collection: guides });
-            $('.search-results').html(guidesView.render().el);
+            var guidesView = new App.Views.GuidesIndex({ el: '.search-results', collection: guides });
+            guidesView.render();
+            guidesView.initTraitify();
         },
         error: function() {
             $('.search-results').html("No matches found. For now...");

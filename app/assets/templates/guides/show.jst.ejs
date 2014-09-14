@@ -2,10 +2,6 @@
   <div class="avatar">
     <img src="<%= model.gravatar_url %>"></img>
   </div>
-  <div class="traitify-widget">
-    <%= model.traitify_id %>
-  </div>
-
   <div class="details">
     <div class="name"><%= model.name %></div>
     <div class="address"><%= model.address %></div>
@@ -15,5 +11,12 @@
         Send a Message
       </a>
     </div>
+
+    <a href="" class="traitify-link btn btn-default btn-sm">
+      Show Personality Profile
+    </a>
   </div>
+</div>
+
+<div class="hide traitify-widget traitify-widget-<%= model.id %>">
 </div>

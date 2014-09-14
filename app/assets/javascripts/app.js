@@ -15,3 +15,7 @@ window.App = {
   Flights     : {},
   Components  : {},
 }
+
+Traitify.setPublicKey("8kvtmdpdp6b2n2nep5a60oc1f9");
+Traitify.setHost("https://api-sandbox.traitify.com");
+Traitify.setVersion("v1");

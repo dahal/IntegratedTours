@@ -12,9 +12,11 @@ traitify_ids = [
 [
   "San Francisco, CA",
   "1 main st, San Francisco",
-  "Dely City, CA",
+  "Daly City, CA",
   "Palo Alto, CA",
   "Golden Gate Park, San Francisco",
+  "Alcatraz, San Francisco",
+  "Twin Peaks, San Francisco",
   "Chicago",
   "New York"
 ].each_with_index do |address, i|

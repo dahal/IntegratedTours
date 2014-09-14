@@ -19,5 +19,16 @@ App.Views.GuidesIndex = Backbone.View.extend({
         }
 
         return this;
+    },
+
+    initTraitify: function() {
+      this.collection.each(function(model) {
+        var traitifyId = model.get('traitify_id');
+        var selector = '.traitify-widget-' + model.get('id');
+
+        Traitify.ui.slideDeck(traitifyId, selector, function(data) {
+          Traitify.ui.resultsProp(traitifyId, selector, { showTraits: true });
+        });
+      });
     }
 });

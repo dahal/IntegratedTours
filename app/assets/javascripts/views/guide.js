@@ -1,28 +1,33 @@
 App.Views.Guide = Backbone.View.extend({
     className: 'tour-guide',
+
     template: JST['guides/show'],
+
     events: {
-        'click .contact': 'initiateContact',
-        'mousein .avatar': 'getMoreInfo'
+        'click .traitify-link': 'showTraitify'
     },
 
     initialize: function(args) {
         var args = args || {};
-        
+
         _(this).extend(args);
-        this.listenTo(this.model, 'change', this.render);
-        this.listenTo(this.model, 'destroy', this.remove);
-        this.listenTo(this.model, 'visible', this.toggleVisible);
     },
+
     render: function() {
         var content = this.template({ model: this.model.toJSON() });
         this.$el.html(content);
+
+        if (!this.model.get('traitify_id')) {
+          this.$el.find('.traitify-link').addClass('hide');
+        }
+
         return this;
     },
-    initiateContact: function() {
-        this.$el.append('<div class="yuck">Clicked</div>'); 
+
+    showTraitify: function(e) {
+        e.preventDefault();
+
+        this.$el.find('.traitify-link').addClass('hide');
+        this.$el.find('.traitify-widget').removeClass('hide');
     },
-    getMoreInfo: function() {
-        this.$el.addClass('.exanded');
-    }
 });
