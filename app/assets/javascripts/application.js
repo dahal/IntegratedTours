@@ -9,5 +9,4 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require ./dashboard
-//= require namespace.js
 //= require_tree .

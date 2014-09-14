@@ -10,7 +10,7 @@ IntegratedTours.Flights.Controller.prototype = {
   },
 
   showCurrentLocation: function(position){
-    console.log(position.coords.latitude+","+position.coords.longitude)
+    return position.coords.latitude+","+position.coords.longitude
   },
 
   showError: function(){
