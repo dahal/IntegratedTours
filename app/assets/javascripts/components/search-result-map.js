@@ -1,12 +1,15 @@
 App.Components.SearchResultMap = function(el, options) {
   this.el = el;
   this.options = options;
+  this.markers = [];
 
-  this.init = function() {
+  this.render = function() {
     this.map = new google.maps.Map(this.el, this.options);
   };
 
-  this.drawPins = function(guides) {
+  this.setMarkers = function(guides) {
+    this.clearMarkers();
+
     var bounds = new google.maps.LatLngBounds();
 
     for (var i in guides) {
@@ -16,14 +19,22 @@ App.Components.SearchResultMap = function(el, options) {
 
       bounds.extend(coords);
 
-      new google.maps.Marker({
-        position: coords,
-        map: this.map,
-        title: 'Hello World!'
-      });
-
+      this.markers.push(
+        new google.maps.Marker({
+          position: coords,
+          map: this.map
+        })
+      );
     }
 
     this.map.fitBounds(bounds);
   };
+
+  this.clearMarkers = function() {
+    for (var i in this.markers) {
+      var marker = this.markers[i];
+      marker.setMap(null);
+    }
+    this.markers = [];
+  }
 };

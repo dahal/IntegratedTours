@@ -1,18 +1,31 @@
 $(function() {
   "user strict";
 
-  var map = null;
+  var searchUrl = $('.search-form').attr('action');
+
+  var performSearch = function(query) {
+    $.ajax({
+      url: searchUrl,
+      data: { location: query },
+      dataType: 'json',
+      success: function(results) {
+        map.setMarkers(results);
+      }
+    });
+  }
+
+  var map = new App.Components.SearchResultMap($('.search-map')[0]);
 
   App.Components.CurrentLocation.getLocation(function(position) {
-    var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    map.render();
 
-    console.log(coords)
-    map = new App.Components.SearchResultMap($('.search-map')[0], { center: coords });
-    map.init();
+    performSearch([position.coords.latitude, position.coords.longitude])
   });
 
   $('.search-form').on('submit', function(e) {
     e.preventDefault();
+
+    performSearch($(this).find('[name=location]').val());
     var guides = new App.Collections.Guides({ params: $(this).serialize() });
     guides.fetch({
         success: function(results) {
@@ -24,15 +37,6 @@ $(function() {
             $('.search-results').html("No matches found. For now...");
         }
     });
-
-    console.log($(this).attr('action'));
-    $.ajax({
-      url: $(this).attr('action'),
-      data: $(this).serialize(),
-      dataType: 'json',
-      success: function(results) {
-        map.drawPins(results);
-      }
-    });
   });
+
 });
