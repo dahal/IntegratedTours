@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :guides, only: [:index], defaults: { format: 'json' }
 
   root to: 'dashboard#show'
-  get 'flights/destination'
+  match '/flights', to: 'flights#destination', via: [:get, :post]
+  # post '/flights', to: 'flights#destination'
   get 'flights/random_destination'
 end

@@ -1,20 +1,20 @@
 class FlightsController < ApplicationController
   def destination
-    # options = {
-    #   :origin        => params[:origin],
-    #   :destination   => params[:destination],
-    #   :departuredate => params[:departure_date],
-    #   :returndate    => params[:return_date]
-    # }
     options = {:query=>{
-      :origin        => 'JFK',
-      :destination   => 'LAX',
-      :departuredate => '2014-10-01',
-      :returndate    => '2014-10-15'
-      } 
+      :origin        => params[:origin],
+      :destination   => params[:destination],
+      :departuredate => params[:departuredate],
+      :returndate    => params[:returndate]
     }
-    @flights = SabreDevStudio::Base.get('/v1/shop/flights', options)
-    render json: @flights.to_json
+    }
+    if options[:query][:origin] != nil
+
+      @flights = SabreDevStudio::Base.get('/v1/shop/flights', options)["PricedItineraries"]
+      # @flights = @flights['PricedItineraries']
+    end
+    # render json: @flights.to_json
+    # require "pry"; binding.pry
+ 
   end
 
   def random_destination

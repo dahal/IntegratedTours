@@ -5,4 +5,7 @@ $(function() {
 
     var guidesRouter = new App.Routers.Router();
     Backbone.history.start();
+
+    var flights = new App.Flights.Controller()
+    flights.init()
 });

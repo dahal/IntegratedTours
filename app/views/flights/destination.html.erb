@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="col-md-5">
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Search for Flights</h3>
+      </div>
+      <div class="panel-body">
+
+        <%= form_tag ( '/flights') do %>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">FROM</label>
+          <div class="col-lg-10">
+            <%= text_field_tag "origin", "", class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">TO</label>
+          <div class="col-lg-10">
+            <%= text_field_tag "destination", "", class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Flying Date</label>
+          <div class="col-lg-10">
+            <%= text_field_tag "departuredate", "", class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Return Date</label>
+          <div class="col-lg-10">
+            <%= text_field_tag "returndate", "", class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+            <!-- <input value="submit" type="submit" id ="flights" class="btn btn-primary"> -->
+            <%= submit_tag "Submit", :class=> "btn btn-md btn-primary" %>
+          </div>
+        </div>
+
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="col-md-6">
+    <% if @flights %>
+      <% @flights.each do |flight| %>
+        <p>Flight: <%= flight["AirItineraryPricingInfo"]["ItinTotalFare"]["TotalFare"]["Amount"] %>USD</p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

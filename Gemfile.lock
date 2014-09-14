@@ -90,8 +90,10 @@ GEM
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
+    font-awesome-sass (4.2.0)
+      sass (~> 3.2)
     geocoder (1.2.5)
-    hashie (3.3.1)
+    hashie (3.2.0)
     hike (1.2.3)
     httparty (0.13.1)
       json (~> 1.8)
@@ -147,10 +149,10 @@ GEM
     rdoc (4.1.2)
       json (~> 1.4)
     refills (0.0.2)
-    sabre_dev_studio (1.0.1)
-      hashie
-      httparty
-      multi_json
+    sabre_dev_studio (1.0.2)
+      hashie (~> 3.2.0)
+      httparty (~> 0.13.1)
+      multi_json (~> 1.10.1)
     sass (3.4.4)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
@@ -197,6 +199,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
+  font-awesome-sass
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
