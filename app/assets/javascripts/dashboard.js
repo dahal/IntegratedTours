@@ -12,6 +12,17 @@ $(function() {
         map.setMarkers(results);
       }
     });
+
+    var guides = new App.Collections.Guides({ params: 'location='+query  });
+    guides.fetch({
+        success: function(results) {
+            var guidesView = new App.Views.GuidesIndex({ collection: guides });
+            $('.search-results').html(guidesView.render().el);
+        },
+        error: function() {
+            $('.search-results').html("No matches found. For now...");
+        }
+    });
   }
 
   var map = new App.Components.SearchResultMap($('.search-map')[0]);
@@ -26,18 +37,6 @@ $(function() {
     e.preventDefault();
 
     performSearch($(this).find('[name=location]').val());
-    var guides = new App.Collections.Guides({ params: $(this).serialize() });
-    guides.fetch({
-        success: function(results) {
-            var guidesView = new App.Views.GuidesIndex({ collection: guides });
-            $('.search-results').html(guidesView.render().el);
-            // map.drawPins(results);
-        },
-        error: function() {
-            $('.search-results').html("No matches found. For now...");
-        }
-    });
-
     scrollToAnchor('results');
   });
 
