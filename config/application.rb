@@ -26,5 +26,13 @@ module IntegratedTours
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    Traitify.configure do |config|
+      # config.api_host = "https://api.traitify.com"
+      config.api_host = "https://api-sandbox.traitify.com"
+      config.api_version = "v1"
+      config.secret = 'gmd9rhcclbdcdsovogaepf5f3b'
+      config.deck_id = "super-hero"
+    end
+
   end
 end
